@@ -13,7 +13,8 @@ public class Main {
                 "Meu Atalho Teste",
                 Path.of("/usr/bin/gnome-calculator"), // ou outro caminho válido no seu PC
                 null, // sem ícone por enquanto
-                "Utility"
+                "Utility",
+                "game-performance prime-run mangohud"
         );
 
         try {

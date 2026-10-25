@@ -7,5 +7,6 @@ public record Shortcut(
     String name,
     Path programPath,
     Path imagePath,
-    String category
+    String category,
+    String launchFlags
 ) {}
