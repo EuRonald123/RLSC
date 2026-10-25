@@ -24,8 +24,8 @@ public class DesktopEntryBuilder {
         } else {
             content.append("Icon=application-x-executable\n");
         }
-        if (shortcut.category() != null && !shortcut.category().isBlank()) {
-            content.append("Categories=").append(shortcut.category()).append(";\n");
+        if (shortcut.category() != null) {
+            content.append("Categories=").append(shortcut.category().getDesktopValue()).append(";\n");
         }
         content.append("Path=").append(programPath.getParent()).append("\n");
         content.append("Terminal=false\n");

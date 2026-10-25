@@ -1,5 +1,7 @@
+package com.rnd.service;
+
+import com.rnd.model.Category;
 import com.rnd.model.Shortcut;
-import com.rnd.service.DesktopEntryBuilder;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Path;
@@ -17,7 +19,7 @@ public class DesktopEntryBuilderTest {
                 "My shortcut",
                 Path.of("/home/user/jogo.AppImage"),
                 null,
-                "Game",
+                Category.GAME,
                 null
         );
 
@@ -33,7 +35,7 @@ public class DesktopEntryBuilderTest {
                 "Meu Jogo (v2)!",
                 Path.of("/home/user/jogo.AppImage"),
                 null,
-                "Game",
+                Category.GAME,
                 null
         );
 
@@ -50,7 +52,7 @@ public class DesktopEntryBuilderTest {
                 "My shortcut",
                 Path.of("/home/user/jogo.AppImage"),
                 Path.of("/home/user/icone.png"),
-                "Game",
+                Category.GAME,
                 null
         );
 
@@ -65,7 +67,7 @@ public class DesktopEntryBuilderTest {
                 "My shortcut",
                 Path.of("/home/user/jogo.AppImage"),
                 null,
-                "Game",
+                Category.GAME,
                 null
         );
 
@@ -81,7 +83,7 @@ public class DesktopEntryBuilderTest {
                 "My shortcut",
                 Path.of("/home/user/jogo.AppImage"),
                 null,
-                "Game",
+                Category.GAME,
                 "game-performance prime-run mangohud"
         );
 
@@ -95,7 +97,7 @@ public class DesktopEntryBuilderTest {
                 "My shortcut",
                 Path.of("/home/user/jogo.AppImage"),
                 null,
-                "Game",
+                Category.GAME,
                 null
         );
 
@@ -109,7 +111,7 @@ public class DesktopEntryBuilderTest {
                 "My shortcut",
                 Path.of("/home/user/jogo.AppImage"),
                 null,
-                "Game",
+                Category.GAME,
                 "    "
         );
 
@@ -123,7 +125,7 @@ public class DesktopEntryBuilderTest {
                 "My shortcut",
                 Path.of("/home/user/jogo.AppImage"),
                 null,
-                "Game",
+                Category.GAME,
                 "   prime-run mangohud   "
         );
 
@@ -137,7 +139,7 @@ public class DesktopEntryBuilderTest {
                 "My shortcut",
                 Path.of("/home/user/Meus Jogos/jogo.AppImage"),
                 null,
-                "Game",
+                Category.GAME,
                 null
         );
 
@@ -152,7 +154,7 @@ public class DesktopEntryBuilderTest {
                 "My shortcut",
                 Path.of("jogo.AppImage"),
                 null,
-                "Game",
+                Category.GAME,
                 null
         );
 
@@ -170,11 +172,12 @@ public class DesktopEntryBuilderTest {
                 "My shortcut",
                 Path.of("/home/user/jogo.AppImage"),
                 null,
-                "Game",
+                Category.GAME,
                 null
         );
 
         String resultado = DesktopEntryBuilder.build(shortcut);
+        //System.out.print(resultado);
         assertTrue(resultado.contains("Categories=Game;\n"));
     }
 
@@ -192,20 +195,6 @@ public class DesktopEntryBuilderTest {
         assertFalse(resultado.contains("Categories="));
     }
 
-    @Test
-    void omitsCategoryWhenBlank() {
-        Shortcut shortcut = new Shortcut(
-                "My shortcut",
-                Path.of("/home/user/jogo.AppImage"),
-                null,
-                "   ",
-                null
-        );
-
-        String resultado = DesktopEntryBuilder.build(shortcut);
-        assertFalse(resultado.contains("Categories="));
-    }
-
     // PATH
 
     @Test
@@ -214,7 +203,7 @@ public class DesktopEntryBuilderTest {
                 "My shortcut",
                 Path.of("/home/user/Meus Jogos/jogo.AppImage"),
                 null,
-                "Game",
+                Category.GAME,
                 null
         );
 
@@ -229,7 +218,7 @@ public class DesktopEntryBuilderTest {
                 "My shortcut",
                 Path.of("jogo.AppImage"),
                 null,
-                "Game",
+                Category.GAME,
                 null
         );
 

@@ -1,5 +1,6 @@
 package com.rnd;
 
+import com.rnd.model.Category;
 import com.rnd.model.Shortcut;
 import com.rnd.service.ShortcutCreatorService;
 import java.nio.file.Path;
@@ -13,7 +14,7 @@ public class Main {
                 "Meu Atalho Teste",
                 Path.of("/mnt/Bau/Programas/uad-ng-linux"), // ou outro caminho válido no seu PC
                 null, // sem ícone por enquanto
-                "Utility",
+                Category.UTILITY,
                 "game-performance prime-run mangohud"
         );
 
