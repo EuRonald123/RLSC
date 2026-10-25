@@ -28,6 +28,8 @@ public class ShortcutCreatorService {
         content.append("Exec=").append(exec).append("\n");
         if (shortcut.imagePath() != null) {
             content.append("Icon=").append(shortcut.imagePath()).append("\n");
+        }else{
+            content.append("Icon=application-x-executable\n");
         }
         if (shortcut.category() != null && !shortcut.category().isBlank()){
             content.append("Categories=").append(shortcut.category()).append("\n");

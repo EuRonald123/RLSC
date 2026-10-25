@@ -11,7 +11,7 @@ public class Main {
         // Criando um atalho de teste (ex: abrindo a calculadora ou editor de texto)
         Shortcut teste = new Shortcut(
                 "Meu Atalho Teste",
-                Path.of("/usr/bin/gnome-calculator"), // ou outro caminho válido no seu PC
+                Path.of("/mnt/Bau/Programas/uad-ng-linux"), // ou outro caminho válido no seu PC
                 null, // sem ícone por enquanto
                 "Utility",
                 "game-performance prime-run mangohud"
