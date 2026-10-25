@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rnd.controller.RlscController">
+    <VBox prefHeight="244.0" prefWidth="470.0" spacing="10.0" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+        <HBox alignment="CENTER_LEFT" prefHeight="23.0" prefWidth="460.0" spacing="10.0">
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <Label minWidth="100.0" text="Shortcut Name:">
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            </Label>
+            <TextField fx:id="textName" HBox.hgrow="ALWAYS">
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            </TextField>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" prefHeight="14.0" prefWidth="460.0" spacing="10.0">
+            <VBox.margin>
+                <Insets />
+            </VBox.margin>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <Label minWidth="100.0" text="Executable Path:">
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            </Label>
+            <TextField fx:id="textExecutablePath" HBox.hgrow="ALWAYS" />
+            <Button contentDisplay="RIGHT" minWidth="30.0" mnemonicParsing="false" onAction="#findExecutable" text="Find" />
+        </HBox>
+        <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="460.0" spacing="10.0">
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <Label contentDisplay="CENTER" minWidth="100.0" text="Icon Path:">
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            </Label>
+            <TextField fx:id="textIconPath" HBox.hgrow="ALWAYS" />
+            <Button contentDisplay="RIGHT" minWidth="30.0" mnemonicParsing="false" onAction="#findIcon" text="Find" />
+        </HBox>
+        <HBox alignment="CENTER_LEFT" prefHeight="14.0" prefWidth="460.0" spacing="10.0">
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <Label minWidth="100.0" text="Flags:">
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            </Label>
+            <TextField fx:id="textFlags" HBox.hgrow="ALWAYS" />
+        </HBox>
+        <HBox alignment="CENTER_LEFT" prefHeight="14.0" prefWidth="460.0" spacing="10.0">
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <Label minWidth="100.0" text="Category:" />
+            <ComboBox fx:id="comboCategory" minWidth="150.0" prefHeight="30.0" prefWidth="150.0" HBox.hgrow="ALWAYS" />
+        </HBox>
+        <Separator prefWidth="200.0" />
+        <HBox alignment="BOTTOM_RIGHT" prefHeight="127.0" prefWidth="470.0" spacing="15.0" VBox.vgrow="ALWAYS">
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <Button mnemonicParsing="false" onAction="#checkPreview" text="Preview">
+                <HBox.margin>
+                    <Insets />
+                </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#shortcutCreate" text="Create" />
+        </HBox>
+    </VBox>
+</AnchorPane>
