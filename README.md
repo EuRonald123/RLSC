@@ -2,6 +2,11 @@
 
 A graphical utility to create and manage desktop shortcuts (`.desktop`) for AppImages and binaries on Linux, integrating them directly into the system menu.
 
+<div style="text-align: center">
+    <img src=".github/assets/rlsc_icon.png" alt="RLSC Icon" width="250">
+</div>
+
+
 ## Features
 
 - Creates and validates `.desktop` files in compliance with Freedesktop specifications.
@@ -10,6 +15,10 @@ A graphical utility to create and manage desktop shortcuts (`.desktop`) for AppI
 - Custom icon selection with automatic fallback to `application-x-executable`.
 - Optional automatic execution permission (`chmod +x`) on the target binary.
 - Immediate system menu cache updates (`update-desktop-database` and `kbuildsycoca6` for KDE Plasma environments).
+
+## Interface
+
+![RLSC Interface](.github/assets/screenshot.png)
 
 ## Installation and Usage
 
