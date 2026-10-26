@@ -3,7 +3,10 @@ package com.rnd.view;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+
+import java.io.InputStream;
 
 public class RlscUI extends Application {
     @Override
@@ -12,6 +15,12 @@ public class RlscUI extends Application {
         Scene scene = new Scene(fxmlLoader.load());
 
         stage.setTitle("RLSC - RLinux Shortcut Creator");
+
+        InputStream iconStream = getClass().getResourceAsStream("rlsc_icon.png");
+        if (iconStream != null) {
+            stage.getIcons().add(new Image(iconStream));
+        }
+
         stage.setScene(scene);
 
         int minX = 500;
