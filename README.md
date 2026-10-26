@@ -2,9 +2,9 @@
 
 A graphical utility to create and manage desktop shortcuts (`.desktop`) for AppImages and binaries on Linux, integrating them directly into the system menu.
 
-<div style="text-align: center">
+<center>
     <img src=".github/assets/rlsc_icon.png" alt="RLSC Icon" width="250">
-</div>
+</center>
 
 
 ## Features
