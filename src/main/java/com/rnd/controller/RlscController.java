@@ -2,6 +2,7 @@ package com.rnd.controller;
 
 import com.rnd.model.Category;
 import com.rnd.model.Shortcut;
+import com.rnd.service.DesktopEntryBuilder;
 import com.rnd.service.ShortcutCreatorService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -29,15 +30,6 @@ public class RlscController {
     public void initialize() {
         comboCategory.getItems().addAll(Category.values());
         comboCategory.setValue(Category.NONE);
-    }
-
-    //Show Alert Popup
-    private void showAlert(Alert.AlertType alertType, String title, String message) {
-        Alert alert = new Alert(alertType);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(message);
-        alert.showAndWait();
     }
 
     @FXML
@@ -75,30 +67,18 @@ public class RlscController {
 
     @FXML
     private void checkPreview() {
-        System.out.println("Clicou em Preview!");
+        Shortcut shortcut = buildShortcutFromForm();
+        if (shortcut == null) return;
+
+        String previewText = DesktopEntryBuilder.build(shortcut);
+        showAlert(Alert.AlertType.INFORMATION, "Preview", previewText);
     }
 
     @FXML
     private void shortcutCreate() {
-        if (textName.getText().isBlank()){
-            showAlert(Alert.AlertType.WARNING, "Attention", "Please enter the shortcut name!");
-            return;
-        }
+        Shortcut shortcut = buildShortcutFromForm();
+        if (shortcut == null) return;
 
-        if (textExecutablePath.getText().isBlank()){
-            showAlert(Alert.AlertType.WARNING, "Attention", "Please select the executable path!");
-            return;
-        }
-
-        Path iconPath = textIconPath.getText().isBlank() ? null : Path.of(textIconPath.getText());
-
-        Shortcut shortcut = new Shortcut(
-                textName.getText().strip(),
-                Path.of(textExecutablePath.getText().strip()),
-                iconPath,
-                comboCategory.getValue(),
-                textFlags.getText()
-        );
         try{
             service.createFileShortcut(shortcut);
             showAlert(Alert.AlertType.INFORMATION, "Success","Shortcut created successfully!");
@@ -110,4 +90,34 @@ public class RlscController {
     }
     private final ShortcutCreatorService service =  new ShortcutCreatorService();
 
+    //Show Alert Popup
+    private void showAlert(Alert.AlertType alertType, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+
+    private Shortcut buildShortcutFromForm(){
+        if (textName.getText().isBlank()){
+            showAlert(Alert.AlertType.WARNING, "Attention", "Please enter the shortcut name!");
+            return null;
+        }
+
+        if (textExecutablePath.getText().isBlank()){
+            showAlert(Alert.AlertType.WARNING, "Attention", "Please select the executable path!");
+            return null;
+        }
+
+        Path iconPath = textIconPath.getText().isBlank() ? null : Path.of(textIconPath.getText());
+
+        return new Shortcut(
+                textName.getText().strip(),
+                Path.of(textExecutablePath.getText().strip()),
+                iconPath,
+                comboCategory.getValue(),
+                textFlags.getText()
+        );
+    }
 }
