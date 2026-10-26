@@ -13,21 +13,6 @@ A graphical utility to create and manage desktop shortcuts (`.desktop`) for AppI
 
 ## Installation and Usage
 
-### Arch Linux / CachyOS (AUR)
-
-Available in the AUR as a pre-built binary package:
-
-```bash
-paru -S rlsc-bin
-# or
-yay -S rlsc-bin
-```
-
-Once installed, launch it from your application menu or from the terminal:
-```bash
-rlsc
-```
-
 ### AppImage (Universal Linux)
 
 1. Download `RLSC-x86_64.AppImage` from the [Releases](https://github.com/Eu_Ronald123/RLSC/releases) page.
@@ -66,7 +51,7 @@ Run the build script at the root of the project:
 ```
 
 Generated packages will be placed in the `target/` directory:
-- `target/RLSC-x86_64.AppImage`: Standalone universal AppImage.
+- `packaging/appimage/RLSC-x86_64.AppImage`: Standalone universal AppImage.
 - `target/rlsc-linux-bin.zip`: Pre-built binary package used by the AUR PKGBUILD.
 
 ## Technologies Used
