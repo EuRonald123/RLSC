@@ -5,7 +5,8 @@ echo "=== 1. Running tests and building jlink image + zip ==="
 mvn clean test javafx:jlink
 
 cp src/main/resources/com/rnd/view/rlsc_icon.png target/rlsc-image/rlsc.png
-zip -j target/rlsc-linux-bin.zip target/rlsc-image/rlsc.png
+cp LICENSE target/rlsc-image/LICENSE
+zip -j target/rlsc-linux-bin.zip target/rlsc-image/rlsc.png target/rlsc-image/LICENSE
 
 echo "=== 2. Preparing AppDir for AppImage ==="
 APPDIR="target/RLSC.AppDir"

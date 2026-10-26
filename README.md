@@ -33,8 +33,17 @@ A graphical utility to create and manage desktop shortcuts (`.desktop`) for AppI
    ```bash
    ./RLSC-x86_64.AppImage
    ```
-
 *Note: The AppImage contains an embedded Java runtime. You do not need Java installed on your system to run it.*
+
+### Arch Linux (Manual Package)
+
+Download `rlsc-bin-1.0.0-1-x86_64.pkg.tar.zst` from the [Releases](https://github.com/EuRonald123/RLSC/releases) page and install it with:
+
+```bash
+sudo pacman -U rlsc-bin-1.0.0-1-x86_64.pkg.tar.zst
+```
+
+(AUR package coming soon once registrations reopen).
 
 ## Building from Source
 
