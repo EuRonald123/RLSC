@@ -13,6 +13,19 @@ public class RlscUI extends Application {
 
         stage.setTitle("RLSC - RLinux Shortcut Creator");
         stage.setScene(scene);
+
+        int minX = 500;
+        int maxX = 950;
+        int Y = 350;
+
+        stage.setWidth(minX);
+        stage.setHeight(Y);
+        stage.setMinWidth(minX);
+        stage.setMinHeight(Y);
+        stage.setMaxWidth(maxX);
+        stage.setMaxHeight(Y);
+
+        stage.centerOnScreen();
         stage.show();
     }
 

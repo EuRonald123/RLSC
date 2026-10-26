@@ -30,6 +30,7 @@ public class DesktopEntryBuilder {
         content.append("Path=").append(programPath.getParent()).append("\n");
         content.append("Terminal=false\n");
         content.append("StartupNotify=true\n");
+        content.append("PrefersNonDefaultGPU=false\n");
 
         return  content.toString();
     }

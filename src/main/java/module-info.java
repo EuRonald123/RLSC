@@ -2,7 +2,6 @@ module com.rnd {
     requires javafx.controls;
     requires javafx.fxml;
 
-    //opens com.rnd.view to javafx.fxml, javafx.graphics;
     opens com.rnd.controller to javafx.fxml, javafx.graphics;
 
     exports com.rnd;

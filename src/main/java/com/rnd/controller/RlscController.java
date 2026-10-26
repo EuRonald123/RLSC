@@ -2,15 +2,16 @@ package com.rnd.controller;
 
 import com.rnd.model.Category;
 import com.rnd.model.Shortcut;
-import com.rnd.service.DesktopEntryBuilder;
 import com.rnd.service.ShortcutCreatorService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Path;
 
 public class RlscController {
@@ -25,6 +26,8 @@ public class RlscController {
     private TextField textFlags;
     @FXML
     private ComboBox<Category> comboCategory;
+    @FXML
+    private CheckBox checkExecutable;
 
     @FXML
     public void initialize() {
@@ -66,26 +69,22 @@ public class RlscController {
     }
 
     @FXML
-    private void checkPreview() {
-        Shortcut shortcut = buildShortcutFromForm();
-        if (shortcut == null) return;
-
-        String previewText = DesktopEntryBuilder.build(shortcut);
-        showAlert(Alert.AlertType.INFORMATION, "Preview", previewText);
-    }
-
-    @FXML
     private void shortcutCreate() {
         Shortcut shortcut = buildShortcutFromForm();
         if (shortcut == null) return;
 
         try{
-            service.createFileShortcut(shortcut);
+            service.createFileShortcut(shortcut, checkExecutable.isSelected());
             showAlert(Alert.AlertType.INFORMATION, "Success","Shortcut created successfully!");
-        } catch (Exception e) {
-            showAlert(Alert.AlertType.ERROR, "Error", e.getMessage());
+        } catch (IllegalArgumentException e){
+            showAlert(Alert.AlertType.WARNING, "Invalid Input", e.getMessage());
         }
-
+        catch (IOException e) {
+            showAlert(Alert.AlertType.ERROR, "System / File Error", "Failed to create shortcut:\n" + e.getMessage());
+        }
+        catch (Exception e) {
+            showAlert(Alert.AlertType.ERROR, "Unexpected Error", "An unexpected error occurred:\n" + e.getMessage());
+        }
 
     }
     private final ShortcutCreatorService service =  new ShortcutCreatorService();
